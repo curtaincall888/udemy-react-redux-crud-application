@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// reduxパッケージにstoreを作成する為の関数 'createStore' が定義されている
+import { createStore } from 'redux';
+// 作成したstoreを全コンポーネントに渡す為の機能をもつ特殊なコンポーネント
+import { Provider } from 'react-redux';
+
 import './index.css';
-import App from './App';
+import reducer from './reducers';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
+const store = createStore(reducer)
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
