@@ -2,9 +2,18 @@ import { Component } from 'react';
 // stateやaction,componentを関連づけるconnect関数
 import { connect } from 'react-redux';
 
+// actions/index.jsのincrement関数とdecrement関数をimport
 import { increment, decrement } from '../actions';
 
 class App extends Component {
+    // Ruduxに置いては、状態(state)はstoreで一括管理されていて、
+    // それをAppコンポーネントで受け取ることができます。但し、
+    // 受け取るには以下のようなmapStateToPropsが必要になります。
+    // つまり、Reduxが管理する状態の内、どの要素をコンポーネントは
+    // 参照したいのか？を定義する必要があります。
+    // 以下の処理によってコンポーネントの関心の対象を必要十分なスコープに絞っています。
+    // const mapStateToProps = state => ({ value: state.count.value })
+    // Reduxに置いては決まりのようなものと認識
   render() {
     const props = this.props
     return (
