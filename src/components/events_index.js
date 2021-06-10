@@ -2,10 +2,10 @@ import { Component } from 'react';
 // stateやaction,componentを関連づけるconnect関数
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 // actions/index.jsのincrement関数とdecrement関数をimport
 import { readEvents } from '../actions';
-import { thunk } from 'redux-thunk';
 
 class EventsIndex extends Component {
 
@@ -50,6 +50,8 @@ class EventsIndex extends Component {
             {this.renderEvents()}
           </tbody>
         </table>
+
+        <Link to="/events/new">New Event</Link>
       </>
     )
   }
